@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
 
     // dashboard
     Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('dashboard/chekcout/invoice/{checkout}', [CheckoutController::class, 'invoice'])->name('user.checkout.invoice');
 });
 
 
