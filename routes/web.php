@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [AdminDashboard::class, 'index'])->name('dashboard');
 
         // admin checkout
-        Route::post('checkout/{checkout}' , [AdminCheckout::class, 'update'])->name('checkout.update');
+        Route::post('checkout/{checkout}', [AdminCheckout::class, 'update'])->name('checkout.update');
     });
 });
 
