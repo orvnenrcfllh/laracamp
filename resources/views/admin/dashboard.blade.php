@@ -23,27 +23,25 @@
                             <tbody>
                                 @forelse ($checkouts as $checkout)
                                     <tr>
+                                        <td>{{ $checkout->User->name }}</td>
+                                        <td>{{ $checkout->Camp->title }}</td>
                                         <td>
-                                            {{ $checkout->User->name }}
+                                            <strong>
+                                                Rp. {{ $checkout->total }}
+                                                @if ($checkout->discount_id)
+                                                    <span class="badge bg-success">Disc
+                                                        {{ $checkout->discount_percentage }}%</span>
+                                                @endif
+                                            </strong>
                                         </td>
-                                        <td>
-                                            {{ $checkout->Camp->title }}
-                                        </td>
-                                        <td>
-                                            {{ $checkout->Camp->price }}K
-                                        </td>
-                                        <td>
-                                            {{ $checkout->created_at->format('M d y') }}
-                                        </td>
+                                        <td>{{ $checkout->created_at->format('M d Y') }}</td>
                                         <td>
                                             <strong>{{ $checkout->payment_status }}</strong>
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="3">
-                                            No camps registered
-                                        </td>
+                                        <td colspan="3">No camps registered</td>
                                     </tr>
                                 @endforelse
                             </tbody>
